@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954124636072",
+    "project_id": "coder-chat-4fc20",
+    "storage_bucket": "coder-chat-4fc20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954124636072:android:46c1b3a3f20ea3e5bf179d",
+        "android_client_info": {
+          "package_name": "br.com.coder.chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_1MHOrjnrNngdXm1uxhJA61qoBX0tRNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
