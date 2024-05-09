@@ -3,7 +3,7 @@ import 'package:chat/core/services/chat/chat_service.dart';
 import 'package:flutter/material.dart';
 
 class NewMessage extends StatefulWidget {
-  NewMessage({super.key});
+  const NewMessage({super.key});
 
   @override
   State<NewMessage> createState() => _NewMessageState();
@@ -11,7 +11,6 @@ class NewMessage extends StatefulWidget {
 
 class _NewMessageState extends State<NewMessage> {
   String _message = '';
-
   final _messageController = TextEditingController();
 
   Future<void> _sendMessage() async {
@@ -31,11 +30,10 @@ class _NewMessageState extends State<NewMessage> {
           child: TextField(
             controller: _messageController,
             onChanged: (msg) => setState(() => _message = msg),
-            decoration: InputDecoration(
-              labelText: 'Enviar menssagem...',
+            decoration: const InputDecoration(
+              labelText: 'Enviar mensagem...',
             ),
             onSubmitted: (_) {
-              // funçao para enviar com enter
               if (_message.trim().isNotEmpty) {
                 _sendMessage();
               }
@@ -43,9 +41,9 @@ class _NewMessageState extends State<NewMessage> {
           ),
         ),
         IconButton(
+          icon: const Icon(Icons.send),
           onPressed: _message.trim().isEmpty ? null : _sendMessage,
-          icon: Icon(Icons.send),
-        )
+        ),
       ],
     );
   }

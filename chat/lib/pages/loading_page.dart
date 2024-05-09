@@ -6,20 +6,21 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(
-              color: Colors.white,
+            const CircularProgressIndicator(
+              backgroundColor: Colors.white,
             ),
+            const SizedBox(height: 10),
             Text(
               'Carregando...',
               style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).primaryTextTheme.titleLarge?.color,
               ),
-            )
+            ),
           ],
         ),
       ),

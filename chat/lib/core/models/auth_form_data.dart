@@ -1,23 +1,23 @@
 import 'dart:io';
 
-enum AuthMode { Singup, Login }
+enum AuthMode { signup, login }
 
 class AuthFormData {
   String name = '';
   String email = '';
   String password = '';
   File? image;
-  AuthMode _mode = AuthMode.Login;
+  AuthMode _mode = AuthMode.login;
 
   bool get isLogin {
-    return _mode == AuthMode.Login;
+    return _mode == AuthMode.login;
   }
 
-  bool get isSingup {
-    return _mode == AuthMode.Singup;
+  bool get isSignup {
+    return _mode == AuthMode.signup;
   }
 
-  void toogleAuthMode() {
-    _mode = isSingup ? AuthMode.Login : AuthMode.Singup;
+  void toggleAuthMode() {
+    _mode = isLogin ? AuthMode.signup : AuthMode.login;
   }
 }

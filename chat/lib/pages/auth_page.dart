@@ -15,25 +15,28 @@ class _AuthPageState extends State<AuthPage> {
 
   Future<void> _handleSubmit(AuthFormData formData) async {
     try {
+      if (!mounted) return;
       setState(() => _isLoading = true);
+
       if (formData.isLogin) {
-        //Login
+        // Login
         await AuthService().login(
           formData.email,
           formData.password,
         );
       } else {
-        //signup
+        // Signup
         await AuthService().signup(
           formData.name,
           formData.email,
           formData.password,
-          formData.image!,
+          formData.image,
         );
       }
     } catch (error) {
-      //tratar error
+      // Tratar erro!
     } finally {
+      if (!mounted) return;
       setState(() => _isLoading = false);
     }
   }
@@ -41,23 +44,25 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      body: Stack(children: [
-        Center(
-          child: SingleChildScrollView(
-            child: AuthForm(
-              onSubmit: _handleSubmit,
+      backgroundColor: Theme.of(context).primaryColor,
+      body: Stack(
+        children: [
+          Center(
+            child: SingleChildScrollView(
+              child: AuthForm(onSubmit: _handleSubmit),
             ),
           ),
-        ),
-        if (_isLoading)
-          Container(
-            decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5)),
-            child: Center(
-              child: CircularProgressIndicator(),
+          if (_isLoading)
+            Container(
+              decoration: const BoxDecoration(
+                color: Color.fromRGBO(0, 0, 0, 0.5),
+              ),
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
-          )
-      ]),
+        ],
+      ),
     );
   }
 }
